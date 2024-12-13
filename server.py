@@ -42,10 +42,10 @@ def start_server():
     print("\n--- MESSAGE HANDLING ---")
     encrypted_message = client_socket.recv(1024)
     if encrypted_message:
-        print("SERVER: Encrypted message received from client.")
         cipher = AES.new(session_key, AES.MODE_ECB)
         decrypted_message = cipher.decrypt(encrypted_message).strip()
-        print(f"SERVER: Successfully decrypted client message: ** {decrypted_message.decode()} **")
+        # Directly show the decrypted message with a custom text.
+        print(f"SERVER: Received and decoded message from client: {decrypted_message.decode()}")
     else:
         print("SERVER: No message received from client.")
 
