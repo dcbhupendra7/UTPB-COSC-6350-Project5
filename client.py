@@ -37,7 +37,7 @@ def start_client():
 
     # Command Execution Phase
     print("\n--- COMMAND EXECUTION ---")
-    message = "This is Decrypted Message"
+    message = "Hi there, this is project 5"
     padded_message = pad(message.encode(), 16)  # Pads message to be a multiple of 16 bytes
     cipher = AES.new(session_key, AES.MODE_ECB)
     encrypted_message = cipher.encrypt(padded_message)
@@ -45,6 +45,7 @@ def start_client():
     client.send(encrypted_message)
     print("CLIENT: Encrypted message sent to server.")
 
+    print(f"CLIENT: Custom message displayed instead of the original decrypted message: {message}")
     client.close()
     print("\n==== CLIENT SHUTDOWN COMPLETE ====")
 
